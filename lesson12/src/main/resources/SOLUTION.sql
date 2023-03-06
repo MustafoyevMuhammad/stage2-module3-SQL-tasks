@@ -1,4 +1,4 @@
-delete from student where student.id in (select distinct student_id from mark m join subject s2 on s2.id = m.subject_id where grade >4);
-delete from student where student.id in (select distinct student_id from mark where mark < 4);
-delete  from paymenttype where name = 'Daily';
-delete from mark where mark < 7;
+delete from student where student.id in (select distinct student_id from subject s join mark m on s.id = m.subject_id where mark >4);
+delete from student where id in (select  student_id from mark group by student_id having min(mark) <4);
+delete  from paymenttype where name = 'DAILY';
+delete from MARK where MARK < 7;
